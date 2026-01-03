@@ -1,0 +1,100 @@
+## ========================
+## .NET / Visual Studio
+## ========================
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache
+.vs/
+
+# Rider / ReSharper
+.idea/
+*.sln.iml
+_ReSharper*/
+*.DotSettings.user
+
+## ========================
+## ASP.NET Core
+## ========================
+
+# Local environment settings
+appsettings.Development.json
+appsettings.Local.json
+
+# Secrets
+secrets.json
+
+# IIS
+*.vspscc
+*.vssscc
+*.publishsettings
+*.pubxml
+*.publishproj
+
+## ========================
+## VS Code
+## ========================
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+
+## ========================
+## OS files
+## ========================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+## ========================
+## Test & Coverage
+## ========================
+
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+## ========================
+## NuGet
+## ========================
+
+# NuGet packages (opcional ignorar se quiser restaurar sempre)
+packages/
+*.nupkg
+*.snupkg
+
+## ========================
+## Logs
+## ========================
+
+*.log
+
+## ========================
+## Others
+## ========================
+
+# Temporary files
+*.tmp
+*.temp

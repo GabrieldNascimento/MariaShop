@@ -2,6 +2,9 @@
 {
     public class DomainException : Exception
     {
-        public DomainException(string message) : base(message) { }
+        public string Code { get; }
+        public DomainException(string message, string code) : base(message) {
+            Code = code;
+        }
     }
 }

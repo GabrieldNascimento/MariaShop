@@ -1,4 +1,6 @@
 ﻿using FirstMariaShopMk1.Exceptions.Domain;
+using FirstMariaShopMk1.Exceptions.InvalidData;
+using FirstMariaShopMk1.Exceptions.InvalidUse;
 using System.Collections.ObjectModel;
 
 namespace FirstMariaShopMk1.Models
@@ -23,7 +25,7 @@ namespace FirstMariaShopMk1.Models
 
         public void SetName(string name) {
             if (String.IsNullOrEmpty(name)) {
-                throw new DomainException("O nome não pode ser null");
+                throw new InvalidCategoryNameException();
             }
             Name = name;
         }

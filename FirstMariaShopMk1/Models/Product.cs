@@ -1,5 +1,7 @@
 ﻿using FirstMariaShopMk1.Exceptions.Domain;
-using System.Net.Sockets;
+using FirstMariaShopMk1.Exceptions.InvalidData;
+using FirstMariaShopMk1.Exceptions.InvalidUse;
+
 namespace FirstMariaShopMk1.Models
 {
     public class Product
@@ -31,38 +33,38 @@ namespace FirstMariaShopMk1.Models
 
         public void SetName(string name) {
             if (string.IsNullOrWhiteSpace(name))
-                throw new DomainException("Product name is required");
+                throw new InvalidProductNameException();
 
             Name = name;
         }
 
         public void SetPrice(decimal price) {
             if (price <= 0)
-                throw new DomainException("Price must be greater than zero");
+                throw new InvalidProductPriceException(price);
 
             Price = price;
         }
 
         private void SetInitialStock(int quantity) {
             if (quantity < 0)
-                throw new DomainException("Initial stock cannot be negative");
+                throw new InvalidInitialStockException(quantity);
 
             StockQuantity = quantity;
         }
 
         public void IncreaseStock(int quantity) {
             if (quantity <= 0)
-                throw new DomainException("Quantity must be positive");
+                throw new InvalidStockQuantityException(quantity);
 
             StockQuantity += quantity;
         }
 
         public void DecreaseStock(int quantity) {
             if (quantity <= 0)
-                throw new DomainException("Quantity must be positive");
+                throw new InvalidStockQuantityException(quantity);
 
             if (StockQuantity < quantity)
-                throw new DomainException("Insufficient stock");
+                throw new InsufficientStockException(quantity, StockQuantity);
 
             StockQuantity -= quantity;
 
@@ -72,7 +74,7 @@ namespace FirstMariaShopMk1.Models
 
         public void Activate() {
             if (StockQuantity <= 0)
-                throw new DomainException("Cannot activate product without stock");
+                throw new ProductWithoutStockActivationException(Id);
 
             IsActive = true;
         }

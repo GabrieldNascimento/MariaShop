@@ -10,10 +10,10 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
         Task<bool> NameExistsAsync(string name);
 
         Task<PagedResult<Category>> GetActiveAsync(
-            Pagination pagination);
+            PageRequest pagination);
 
         Task<PagedResult<Category>> GetAllAsync(
-            Pagination pagination);
+            PageRequest pagination);
     }
 
 }

@@ -30,6 +30,24 @@ namespace FirstMariaShopMk1.Models
             Name = name;
         }
 
+        public void SetDescription(string? description) {
+            if (description is null) {
+                Description = null;
+                return;
+            }
+
+            description = description.Trim();
+
+            if (description.Length == 0)
+                throw new InvalidCategoryDescriptionException();
+
+            if (description.Length > 150)
+                throw new InvalidCategoryDescriptionException();
+
+            Description = description;
+        }
+
+
         public void Activate() {
             IsActive = true;
         }

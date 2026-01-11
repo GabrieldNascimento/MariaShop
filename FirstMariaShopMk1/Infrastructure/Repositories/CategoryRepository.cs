@@ -30,7 +30,7 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
 
         }
 
-       public async Task<PagedResult<Category>> GetActiveAsync(Pagination pagination) {
+       public async Task<PagedResult<Category>> GetActiveAsync(PageRequest pagination) {
             ArgumentNullException.ThrowIfNull(pagination);
 
             var query =  _appDbContext.Categories.Where(c => c.IsActive);
@@ -48,7 +48,7 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
        
        }
 
-        public async Task<PagedResult<Category>> GetAllAsync(Pagination pagination) {
+        public async Task<PagedResult<Category>> GetAllAsync(PageRequest pagination) {
             ArgumentNullException.ThrowIfNull(pagination);
 
             var query = _appDbContext.Categories;

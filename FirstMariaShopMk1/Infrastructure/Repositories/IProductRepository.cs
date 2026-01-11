@@ -6,15 +6,15 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
     public interface IProductRepository : IRepository<Product>
     {
         Task<PagedResult<Product>> GetActiveAsync(
-            Pagination pagination);
+            PageRequest pagination);
 
         Task<PagedResult<Product>> GetByCategoryAsync(
             Guid categoryId,
-            Pagination pagination);
+            PageRequest pagination);
 
         Task<PagedResult<Product>> GetWithLowStockAsync(
             int threshold,
-            Pagination pagination);
+            PageRequest pagination);
 
         Task<bool> ExistsWithNameInCategoryAsync(
             string name,

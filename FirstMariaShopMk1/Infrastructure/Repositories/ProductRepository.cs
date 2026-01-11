@@ -15,7 +15,7 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
         }
 
 
-        public async Task<PagedResult<Product>> GetActiveAsync(Pagination pagination) {
+        public async Task<PagedResult<Product>> GetActiveAsync(PageRequest pagination) {
             ArgumentNullException.ThrowIfNull(pagination);
 
             var query = _context.Products
@@ -49,7 +49,7 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
 
         public async Task<PagedResult<Product>> GetByCategoryAsync(
         Guid categoryId,
-        Pagination pagination) {
+        PageRequest pagination) {
             ArgumentNullException.ThrowIfNull(pagination);
 
             var query = _context.Products
@@ -74,7 +74,7 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
 
         public async Task<PagedResult<Product>> GetWithLowStockAsync(
         int threshold,
-        Pagination pagination) {
+        PageRequest pagination) {
             if (threshold < 0)
                 throw new ArgumentOutOfRangeException(nameof(threshold));
 

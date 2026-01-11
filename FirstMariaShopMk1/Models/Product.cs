@@ -72,6 +72,23 @@ namespace FirstMariaShopMk1.Models
                 IsActive = false;
         }
 
+        public void SetDescription(string? description) {
+            if (description is null) {
+                Description = null;
+                return;
+            }
+
+            description = description.Trim();
+
+            if (description.Length == 0)
+                throw new InvalidCategoryDescriptionException();
+
+            if (description.Length > 150)
+                throw new InvalidCategoryDescriptionException();
+
+            Description = description;
+        }
+
         public void Activate() {
             if (StockQuantity <= 0)
                 throw new ProductWithoutStockActivationException(Id);

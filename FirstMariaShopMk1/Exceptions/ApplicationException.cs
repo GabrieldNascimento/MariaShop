@@ -1,4 +1,4 @@
-﻿namespace FirstMariaShopMk1.Exceptions
+﻿namespace MariaShop.Api.Exceptions
 {
     public class ApplicationException : Exception
     {

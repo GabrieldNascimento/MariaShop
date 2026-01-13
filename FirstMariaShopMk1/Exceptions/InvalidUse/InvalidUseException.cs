@@ -1,12 +1,11 @@
-﻿using FirstMariaShopMk1.Exceptions.Domain;
+﻿using MariaShop.Api.Exceptions.Domain;
 
-namespace FirstMariaShopMk1.Exceptions.InvalidUse
+namespace MariaShop.Api.Exceptions.InvalidUse
 {
     public class InvalidUseException : DomainException
     {
-        public InvalidUseException(string message, string code) : base(message, code)
-        {
-            
+        public InvalidUseException(string message, string code) : base(message, code) {
+
         }
     }
 }

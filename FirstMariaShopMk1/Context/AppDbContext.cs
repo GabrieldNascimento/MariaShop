@@ -1,16 +1,15 @@
-﻿using FirstMariaShopMk1.Models;
+﻿using MariaShop.Api.Models;
 using Microsoft.EntityFrameworkCore;
-namespace FirstMariaShopMk1.Context
+namespace MariaShop.Api.Context
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-            
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {
+
         }
 
-        public DbSet<Product> Products { get; set; }    
-        public DbSet<Category> Categories { get; set; }    
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
 
     }

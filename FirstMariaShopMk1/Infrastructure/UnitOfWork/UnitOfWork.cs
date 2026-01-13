@@ -1,20 +1,18 @@
-﻿
-using FirstMariaShopMk1.Context;
+﻿using MariaShop.Api.Context;
 
-namespace FirstMariaShopMk1.Infrastructure.UnitOfWork
+namespace MariaShop.Api.Infrastructure.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
 
-        public UnitOfWork(AppDbContext context)
-        {
-            _context = context ?? throw new ArgumentNullException(nameof(context));   
+        public UnitOfWork(AppDbContext context) {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
 
         public async Task CommitAsync() {
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
 
         public void Dispose() {

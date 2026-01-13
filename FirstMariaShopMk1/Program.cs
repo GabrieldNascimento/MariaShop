@@ -1,9 +1,9 @@
-using FirstMariaShopMk1.Context;
-using FirstMariaShopMk1.Infrastructure.Repositories;
-using FirstMariaShopMk1.Infrastructure.UnitOfWork;
-using FirstMariaShopMk1.Application.Services;
 using Microsoft.EntityFrameworkCore;
-using FirstMariaShopMk1.Application.Mapping;
+using MariaShop.Api.Context;
+using MariaShop.Api.Infrastructure.Repositories;
+using MariaShop.Api.Application.Mapping;
+using MariaShop.Api.Application.Services;
+using MariaShop.Api.Infrastructure.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 

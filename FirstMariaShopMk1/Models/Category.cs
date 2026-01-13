@@ -3,12 +3,12 @@ using FirstMariaShopMk1.Exceptions.InvalidData;
 using FirstMariaShopMk1.Exceptions.InvalidUse;
 using System.Collections.ObjectModel;
 
-namespace FirstMariaShopMk1.Models
+namespace MariaShop.Api.Models
 {
     public class Category
     {
         public Guid Id { get; private set; }
-        public string Name { get; private set; }    
+        public string Name { get; private set; }
         public bool IsActive { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public string? Description { get; private set; }
@@ -24,7 +24,7 @@ namespace FirstMariaShopMk1.Models
         }
 
         public void SetName(string name) {
-            if (String.IsNullOrEmpty(name)) {
+            if (string.IsNullOrEmpty(name)) {
                 throw new InvalidCategoryNameException();
             }
             Name = name;

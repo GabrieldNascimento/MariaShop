@@ -1,4 +1,4 @@
-﻿namespace FirstMariaShopMk1.Exceptions.InvalidUse
+﻿namespace MariaShop.Api.Exceptions.InvalidUse
 {
     public class ProductNotFoundException : InvalidUseException
     {

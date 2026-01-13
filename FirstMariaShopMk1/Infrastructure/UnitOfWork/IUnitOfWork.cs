@@ -1,4 +1,4 @@
-﻿namespace FirstMariaShopMk1.Infrastructure.UnitOfWork
+﻿namespace MariaShop.Api.Infrastructure.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {

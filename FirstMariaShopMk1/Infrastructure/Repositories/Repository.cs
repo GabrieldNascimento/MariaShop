@@ -1,18 +1,17 @@
-﻿using FirstMariaShopMk1.Context;
+﻿using MariaShop.Api.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace FirstMariaShopMk1.Infrastructure.Repositories
+namespace MariaShop.Api.Infrastructure.Repositories
 {
-    public class Repository<T> :IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly AppDbContext _context;
-        public Repository(AppDbContext context)
-        {
+        public Repository(AppDbContext context) {
             _context = context;
         }
 
         public void Add(T entity) {
-            if (entity is null) { 
+            if (entity is null) {
                 throw new ArgumentNullException(nameof(entity));
             }
             _context.Set<T>().Add(entity);

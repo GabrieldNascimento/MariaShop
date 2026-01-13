@@ -1,16 +1,16 @@
-﻿using FirstMariaShopMk1.Application.Pagination;
-using FirstMariaShopMk1.Context;
-using FirstMariaShopMk1.Models;
+﻿using MariaShop.Api.Application.Pagination;
+using MariaShop.Api.Context;
+using MariaShop.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FirstMariaShopMk1.Infrastructure.Repositories
+namespace MariaShop.Api.Infrastructure.Repositories
 {
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
 
         private readonly AppDbContext _appDbContext;
 
-        public CategoryRepository(AppDbContext appDbContext) : base(appDbContext){ 
+        public CategoryRepository(AppDbContext appDbContext) : base(appDbContext) {
         }
 
         public async Task<Category?> GetByNameAsync(string name) {
@@ -30,10 +30,10 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
 
         }
 
-       public async Task<PagedResult<Category>> GetActiveAsync(PageRequest pagination) {
+        public async Task<PagedResult<Category>> GetActiveAsync(PageRequest pagination) {
             ArgumentNullException.ThrowIfNull(pagination);
 
-            var query =  _appDbContext.Categories.Where(c => c.IsActive);
+            var query = _appDbContext.Categories.Where(c => c.IsActive);
 
             var totalItems = await query.CountAsync();
 
@@ -45,8 +45,8 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
                     pagination.PageSize,
                     totalItems
             );
-       
-       }
+
+        }
 
         public async Task<PagedResult<Category>> GetAllAsync(PageRequest pagination) {
             ArgumentNullException.ThrowIfNull(pagination);

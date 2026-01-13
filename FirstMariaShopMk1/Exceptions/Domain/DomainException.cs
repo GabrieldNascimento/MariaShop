@@ -1,4 +1,4 @@
-﻿namespace FirstMariaShopMk1.Exceptions.Domain
+﻿namespace MariaShop.Api.Exceptions.Domain
 {
     public class DomainException : Exception
     {

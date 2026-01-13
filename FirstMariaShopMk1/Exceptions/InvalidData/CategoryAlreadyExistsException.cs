@@ -1,6 +1,6 @@
-﻿using FirstMariaShopMk1.Exceptions.InvalidUse;
+﻿using MariaShop.Api.Exceptions.InvalidUse;
 
-namespace FirstMariaShopMk1.Exceptions.InvalidData
+namespace MariaShop.Api.Exceptions.InvalidData
 {
     public sealed class CategoryAlreadyExistsException : InvalidUseException
     {

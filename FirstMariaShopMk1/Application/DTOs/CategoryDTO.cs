@@ -1,4 +1,4 @@
-﻿namespace FirstMariaShopMk1.Application.DTOs
+﻿namespace MariaShop.Api.Application.DTOs
 {
     public class CategoryDTO
     {

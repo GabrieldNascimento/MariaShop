@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using FirstMariaShopMk1.Application.DTOs;
-using FirstMariaShopMk1.Models;
+using MariaShop.Api.Application.DTOs;
+using MariaShop.Api.Models;
 
-namespace FirstMariaShopMk1.Application.Mapping
+namespace MariaShop.Api.Application.Mapping
 {
     public class MappingProfile : Profile
     {
-        public MappingProfile()
-        {
+        public MappingProfile() {
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<Category, CategoryDTO>().ReverseMap();
         }

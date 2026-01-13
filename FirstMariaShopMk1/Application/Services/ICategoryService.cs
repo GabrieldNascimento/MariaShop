@@ -1,7 +1,7 @@
-﻿using FirstMariaShopMk1.Application.DTOs;
-using FirstMariaShopMk1.Application.Pagination;
+﻿using MariaShop.Api.Application.DTOs;
+using MariaShop.Api.Application.Pagination;
 
-namespace FirstMariaShopMk1.Application.Services
+namespace MariaShop.Api.Application.Services
 {
     public interface ICategoryService
     {

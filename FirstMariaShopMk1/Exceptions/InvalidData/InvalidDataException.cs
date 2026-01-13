@@ -1,12 +1,11 @@
-﻿using FirstMariaShopMk1.Exceptions.Domain;
+﻿using MariaShop.Api.Exceptions.Domain;
 
-namespace FirstMariaShopMk1.Exceptions.InvalidData
+namespace MariaShop.Api.Exceptions.InvalidData
 {
     public class InvalidDataException : DomainException
     {
-        public InvalidDataException(string message, string code) : base(message, code)
-        {
-            
+        public InvalidDataException(string message, string code) : base(message, code) {
+
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using FirstMariaShopMk1.Application.Pagination;
-using FirstMariaShopMk1.Models;
+﻿using MariaShop.Api.Application.Pagination;
+using MariaShop.Api.Models;
 
-namespace FirstMariaShopMk1.Infrastructure.Repositories
+namespace MariaShop.Api.Infrastructure.Repositories
 {
     public interface IProductRepository : IRepository<Product>
     {

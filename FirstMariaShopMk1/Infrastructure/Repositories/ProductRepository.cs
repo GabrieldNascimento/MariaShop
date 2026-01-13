@@ -1,17 +1,16 @@
-﻿using FirstMariaShopMk1.Application.Pagination;
-using FirstMariaShopMk1.Context;
-using FirstMariaShopMk1.Models;
+﻿using MariaShop.Api.Application.Pagination;
+using MariaShop.Api.Context;
+using MariaShop.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FirstMariaShopMk1.Infrastructure.Repositories
+namespace MariaShop.Api.Infrastructure.Repositories
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
         private readonly AppDbContext _context;
 
-        public ProductRepository(AppDbContext context) : base(context)
-        {
-            
+        public ProductRepository(AppDbContext context) : base(context) {
+
         }
 
 
@@ -36,8 +35,8 @@ namespace FirstMariaShopMk1.Infrastructure.Repositories
         }
 
         public async Task<bool> ExistsWithNameInCategoryAsync(string name, Guid categoryId) {
-            
-            if (String.IsNullOrWhiteSpace(name)){
+
+            if (string.IsNullOrWhiteSpace(name)) {
                 throw new ArgumentException(
                 "Name cannot be null or empty.",
                 nameof(name));

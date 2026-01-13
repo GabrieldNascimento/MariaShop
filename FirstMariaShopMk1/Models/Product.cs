@@ -2,7 +2,7 @@
 using FirstMariaShopMk1.Exceptions.InvalidData;
 using FirstMariaShopMk1.Exceptions.InvalidUse;
 
-namespace FirstMariaShopMk1.Models
+namespace MariaShop.Api.Models
 {
     public class Product
     {

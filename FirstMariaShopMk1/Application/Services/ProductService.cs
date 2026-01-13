@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using FirstMariaShopMk1.Application.DTOs;
-using FirstMariaShopMk1.Application.Pagination;
-using FirstMariaShopMk1.Infrastructure.Repositories;
-using FirstMariaShopMk1.Infrastructure.UnitOfWork;
-using FirstMariaShopMk1.Models;
-using FirstMariaShopMk1.Exceptions.InvalidData;
-using FirstMariaShopMk1.Exceptions.InvalidUse;
+using MariaShop.Api.Exceptions.InvalidData;
+using MariaShop.Api.Exceptions.InvalidUse;
+using MariaShop.Api.Application.Pagination;
+using MariaShop.Api.Models;
+using MariaShop.Api.Infrastructure.Repositories;
+using MariaShop.Api.Application.DTOs;
+using MariaShop.Api.Infrastructure.UnitOfWork;
 
-namespace FirstMariaShopMk1.Application.Services
+namespace MariaShop.Api.Application.Services
 {
     public sealed class ProductService : IProductService
     {
@@ -100,6 +100,11 @@ namespace FirstMariaShopMk1.Application.Services
             return MapPagedResult(result);
         }
 
+        public async Task<ProductDTO?> GetByIdAsync(Guid productId) {
+            var product = await _productRepository.GetByIdAsync(productId);
+            return (product is null) ? null: _mapper.Map<ProductDTO>(product);
+        }
+
         public async Task<PagedResult<ProductDTO>> GetByCategoryAsync(
             Guid categoryId,
             PageRequest pagination) {
@@ -145,6 +150,4 @@ namespace FirstMariaShopMk1.Application.Services
                 result.TotalItems);
         }
     }
-
-
 }

@@ -1,4 +1,4 @@
-﻿namespace FirstMariaShopMk1.Infrastructure.Repositories
+﻿namespace MariaShop.Api.Infrastructure.Repositories
 {
     public interface IRepository<T> where T : class
     {

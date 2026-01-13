@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using FirstMariaShopMk1.Application.DTOs;
-using FirstMariaShopMk1.Application.Pagination;
-using FirstMariaShopMk1.Infrastructure.Repositories;
-using FirstMariaShopMk1.Infrastructure.UnitOfWork;
-using FirstMariaShopMk1.Models;
-using FirstMariaShopMk1.Exceptions.InvalidData;
-using FirstMariaShopMk1.Exceptions.InvalidUse;
+using MariaShop.Api.Exceptions.InvalidData;
+using MariaShop.Api.Exceptions.InvalidUse;
+using MariaShop.Api.Application.Pagination;
+using MariaShop.Api.Models;
+using MariaShop.Api.Application.DTOs;
+using MariaShop.Api.Infrastructure.Repositories;
+using MariaShop.Api.Infrastructure.UnitOfWork;
 
-namespace FirstMariaShopMk1.Application.Services
+namespace MariaShop.Api.Application.Services
 {
     public sealed class CategoryService : ICategoryService
     {
@@ -42,6 +42,7 @@ namespace FirstMariaShopMk1.Application.Services
             return _mapper.Map<CategoryDTO>(category);
         }
 
+    
         public async Task UpdateAsync(Guid categoryId, CategoryDTO dto) {
             if (dto is null)
                 throw new ArgumentNullException(nameof(dto));
@@ -53,7 +54,7 @@ namespace FirstMariaShopMk1.Application.Services
 
             if (dto.Description != null)
                 category.SetDescription(dto.Description);
-            
+
 
             await _unitOfWork.CommitAsync();
         }

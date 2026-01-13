@@ -1,4 +1,4 @@
-﻿namespace FirstMariaShopMk1.Exceptions.InvalidData
+﻿namespace MariaShop.Api.Exceptions.InvalidData
 {
     public class InvalidStockQuantityException : InvalidDataException
     {

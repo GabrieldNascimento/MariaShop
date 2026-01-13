@@ -1,4 +1,4 @@
-﻿namespace FirstMariaShopMk1.Application.Pagination
+﻿namespace MariaShop.Api.Application.Pagination
 {
     public sealed class PageRequest
     {

@@ -12,6 +12,9 @@ namespace MariaShop.Api.Application.Services
         Task ActivateAsync(Guid categoryId);
         Task DeactivateAsync(Guid categoryId);
 
+
+        Task<CategoryDTO?> GetByIdAsync(Guid id);
+
         Task<CategoryDTO?> GetByNameAsync(string name);
 
         Task<PagedResult<CategoryDTO>> GetActiveAsync(PageRequest pagination);

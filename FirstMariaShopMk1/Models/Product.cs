@@ -1,6 +1,5 @@
-﻿using FirstMariaShopMk1.Exceptions.Domain;
-using FirstMariaShopMk1.Exceptions.InvalidData;
-using FirstMariaShopMk1.Exceptions.InvalidUse;
+﻿using MariaShop.Api.Exceptions.InvalidData;
+using MariaShop.Api.Exceptions.InvalidUse;
 
 namespace MariaShop.Api.Models
 {

@@ -74,6 +74,15 @@ namespace MariaShop.Api.Controllers
         // READ
         // =========================
 
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<ProductDTO>> GetById(Guid id) {
+            var result = await _categoryService.GetByIdAsync(id);
+
+            return result is null
+                ? NotFound()
+                : Ok(result);
+        }
+
         [HttpGet("by-name/{name}")]
         public async Task<ActionResult<CategoryDTO>> GetByName(string name) {
             var result = await _categoryService.GetByNameAsync(name);

@@ -1,54 +1,28 @@
-using Microsoft.EntityFrameworkCore;
-using MariaShop.Api.Context;
-using MariaShop.Api.Infrastructure.Repositories;
-using MariaShop.Api.Application.Mapping;
-using MariaShop.Api.Application.Services;
-using MariaShop.Api.Infrastructure.UnitOfWork;
+using MariaShop.Api;
 
-var builder = WebApplication.CreateBuilder(args);
+ILogger? startupLogger = null;
 
-// Controllers
-builder.Services.AddControllers();
+try {
+    var builder = WebApplication.CreateBuilder(args);
 
-// Swagger
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+    // =======================
+    // Bootstrap Logger
+    // =======================
+    startupLogger = LoggerFactory.Create(logging =>
+    {
+        logging.AddConsole();
+    }).CreateLogger("Startup");
 
-// DbContext
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.ConfigureServices();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseMySql(
-        connectionString,
-        ServerVersion.AutoDetect(connectionString)
-    );
-});
+    var app = builder.Build();
 
-// Repositories
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+    app.ConfigurePipeline();
 
-// Unit of Work
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-// Application Services
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-
-// AutoMapper
-builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
-
-var app = builder.Build();
-
-// Pipeline
-if (app.Environment.IsDevelopment()) {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.Run();
+}
+catch (Exception ex) {
+    startupLogger?.LogCritical(ex, "Falha crítica na inicialização da API");
+    throw;
 }
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();

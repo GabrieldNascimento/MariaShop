@@ -73,6 +73,11 @@ namespace MariaShop.Api.Application.Services
             await _unitOfWork.CommitAsync();
         }
 
+        public async Task<CategoryDTO?> GetByIdAsync(Guid id) {
+            var category = await _categoryRepository.GetByIdAsync(id);
+            return (category is null) ? null : _mapper.Map<CategoryDTO>(category);
+        }
+
         public async Task<CategoryDTO?> GetByNameAsync(string name) {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Name cannot be null or whitespace.", nameof(name));
@@ -117,6 +122,7 @@ namespace MariaShop.Api.Application.Services
                 result.PageSize,
                 result.TotalItems);
         }
+
     }
 
 }
